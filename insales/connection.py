@@ -28,7 +28,7 @@ class Connection(object):
 
     def request(self, method, endpoint, qargs={}, data=None):
         path = self.format_path(endpoint, qargs)
-        conn = HTTPConnection('%s.myinsales.ru:80' % self.account)
+        conn = HTTPConnection('%s:80' % self.account)
         auth = b64encode("%s:%s" % (self.api_key, self.password))
         headers = {
             'Authorization': 'Basic %s' % auth,
